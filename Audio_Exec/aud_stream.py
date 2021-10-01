@@ -14,9 +14,10 @@ sys.path.insert(0, parent_dir) """
 
 kilThread = False
 isthread = False
+rate = 44100
+bufL=2 #seconds
 
-
-
+audBuffer = np.empty(44100)*2
 
 def audthread(devinfo):
     global kilThread 
@@ -37,21 +38,20 @@ def audthread(devinfo):
 def chldo(devinfo):
     global kilThread 
     global isthread 
-    global killed 
+    global audBuffer
+    global rate
+    global bufL
     rate = int(devinfo['defaultSampleRate'])
     index = devinfo['index']
     chunk = int(rate/10)
     bufL=5 #seconds
-    audBuffer=np.empty(int(rate*bufL))*np.nan
-    print(audBuffer)      
+    audBuffer=np.empty(int(rate*bufL))*2  
     PyAud=pyaudio.PyAudio()
     stream=PyAud.open(format=pyaudio.paInt16,channels=1,rate=rate,input=True,input_device_index=index,frames_per_buffer=chunk)
     while True:
         audBuffer[:-chunk] = audBuffer[chunk:]
-        audBuffer[-chunk:] = np.frombuffer(stream.read(chunk),dtype=np.int16)
-        print(audBuffer)   
+        audBuffer[-chunk:] = np.frombuffer(stream.read(chunk),dtype=np.int16)  
         if kilThread == True:
-            killed = True
             break             
 
 def kilBoi():
