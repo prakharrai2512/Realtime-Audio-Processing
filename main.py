@@ -66,7 +66,7 @@ def update_plot():
 def jsrspec():
     ui.canvas = MplCanvas(width=8, height=6, dpi=100)
     MainWindow.setCentralWidget(ui.canvas)
-    ui.canvas._plot_ref = None
+    #ui.canvas._plot_ref = None
     update_plot1()
     ui.timer = QtCore.QTimer()
     ui.timer.setInterval(100)
