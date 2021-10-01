@@ -16,7 +16,6 @@ kilThread = False
 isthread = False
 rate = 44100
 bufL=2 #seconds
-
 audBuffer = np.empty(44100)*2
 
 def audthread(devinfo):
@@ -43,14 +42,16 @@ def chldo(devinfo):
     global bufL
     rate = int(devinfo['defaultSampleRate'])
     index = devinfo['index']
-    chunk = int(rate/10)
-    bufL=5 #seconds
-    audBuffer=np.empty(int(rate*bufL))*2  
+    chunk = 4096
+    bufL=2 #seconds
+    audBuffer.resize(int(rate*bufL),refcheck=False)
+    #audBuffer=np.empty(int(rate*bufL))*2
     PyAud=pyaudio.PyAudio()
     stream=PyAud.open(format=pyaudio.paInt16,channels=1,rate=rate,input=True,input_device_index=index,frames_per_buffer=chunk)
     while True:
         audBuffer[:-chunk] = audBuffer[chunk:]
         audBuffer[-chunk:] = np.frombuffer(stream.read(chunk),dtype=np.int16)  
+        #print(len(audBuffer))
         if kilThread == True:
             break             
 
