@@ -28,9 +28,8 @@ class Ui_MainWindow(object):
 "color:black;\n"
 "border-radius:5px;\n"
 "border-style:bold;\n"
-"text-align:center;\n"
-"padding-left:100%;\n"
-"padding-right:100%;")
+"font-size:20px;\n"
+"padding-left:10%;")
         self.devcombo.setIconSize(QtCore.QSize(20, 20))
         self.devcombo.setObjectName("devcombo")
         self.conDev = QtWidgets.QPushButton(self.centralwidget)

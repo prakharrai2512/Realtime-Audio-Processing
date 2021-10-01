@@ -41,9 +41,8 @@
 color:black;
 border-radius:5px;
 border-style:bold;
-text-align:center;
-padding-left:100%;
-padding-right:100%;</string>
+font-size:20px;
+padding-left:10%;</string>
     </property>
     <property name="iconSize">
      <size>

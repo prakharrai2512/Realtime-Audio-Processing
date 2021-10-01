@@ -9,7 +9,5 @@ def retlist():
         for i in range (0,numdevices):
                 if p.get_device_info_by_host_api_device_index(0,i).get('maxInputChannels')>0:
                         devinfo = p.get_device_info_by_index(i)
-                        aud_list.update({i:devinfo})
+                        aud_list.update({devinfo.get('name'):devinfo})
         return aud_list
-
-
