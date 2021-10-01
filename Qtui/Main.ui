@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1130</width>
+    <height>656</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Jai Shree Ram</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#1d1d1d;
+</string>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QComboBox" name="devcombo">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>220</y>
+      <width>511</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(254, 254, 254);
+color:black;
+border-radius:5px;
+border-style:bold;
+text-align:center;
+padding-left:100%;
+padding-right:100%;</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>20</width>
+      <height>20</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="conDev">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>380</y>
+      <width>251</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border-style:dashed;
+border-radius:10px;
+font-size:24px;
+font-family: &quot;MS UI Gothic&quot;;
+
+/*background: qlineargradient( x1:0 y1:0, x2:1 y2:0, stop:0 #22c1c3, stop:1 #fdbb2d);*/
+
+</string>
+    </property>
+    <property name="text">
+     <string>Connect to Device</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ampwave">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>380</y>
+      <width>261</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border-style:dashed;
+border-radius:10px;
+font-size:24px;
+font-family: &quot;MS UI Gothic&quot;;
+</string>
+    </property>
+    <property name="text">
+     <string>Amplitude Wave</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="spect">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>380</y>
+      <width>251</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border-style:dashed;
+border-radius:10px;
+font-size:24px;
+font-family: &quot;MS UI Gothic&quot;;
+</string>
+    </property>
+    <property name="text">
+     <string>Spectogram</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>50</y>
+      <width>861</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font-size:30px;
+text-align: center;
+font-family: &quot;MS UI Gothic&quot;;
+position:absolute;
+padding-left:100%;
+padding-right:100%;</string>
+    </property>
+    <property name="text">
+     <string>Choose the input device that you want to analyze</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
