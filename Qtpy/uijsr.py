@@ -17,6 +17,7 @@ class Ui_MainWindow(object):
         MainWindow.resize(1130, 656)
         MainWindow.setAutoFillBackground(False)
         MainWindow.setStyleSheet("background-color:#1d1d1d;\n"
+"\n"
 "")
         MainWindow.setDocumentMode(False)
         MainWindow.setTabShape(QtWidgets.QTabWidget.Rounded)

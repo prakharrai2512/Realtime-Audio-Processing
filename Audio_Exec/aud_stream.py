@@ -30,7 +30,7 @@ def audthread(devinfo):
         kilThread = True
         time.sleep(0.3)
         kilThread = False
-        print("Changed")
+        #print("Changed")
         t1 = threading.Thread(target=chldo, args=(devinfo,))
         t1.start()
 
