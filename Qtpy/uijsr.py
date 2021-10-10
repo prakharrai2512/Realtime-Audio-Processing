@@ -17,6 +17,7 @@ class Ui_MainWindow(object):
         MainWindow.resize(1130, 656)
         MainWindow.setAutoFillBackground(False)
         MainWindow.setStyleSheet("background-color:#1d1d1d;\n"
+"\n"
 "")
         MainWindow.setDocumentMode(False)
         MainWindow.setTabShape(QtWidgets.QTabWidget.Rounded)
@@ -82,7 +83,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Jai Shree Ram"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Realtime Audio Analysis"))
         self.conDev.setText(_translate("MainWindow", "Connect to Device"))
         self.ampwave.setText(_translate("MainWindow", "Amplitude Wave"))
         self.spect.setText(_translate("MainWindow", "Spectogram"))

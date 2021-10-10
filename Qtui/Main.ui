@@ -18,6 +18,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">background-color:#1d1d1d;
+
 </string>
   </property>
   <property name="documentMode">

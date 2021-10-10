@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets,QtCore
-from PyQt5.QtWidgets import QApplication, QMainWindow,QLabel
+from PyQt5.QtWidgets import QApplication, QMainWindow,QLabel, QWidget,QMessageBox
 import pyaudio
 import matplotlib
 import matplotlib.pyplot as plt
@@ -19,7 +19,7 @@ from matplotlib.figure import Figure
 
 
 def jsr():
-    print("JSR")
+    print(ui.canvas)
 
 """ def plotty():
     t1 = time.time()
@@ -38,44 +38,44 @@ def jsr():
  """
 def jsrplot():
     ui.canvas = MplCanvas(width=8, height=6, dpi=100)
-    MainWindow.setCentralWidget(ui.canvas)
+    #MainWindow.setCentralWidget(ui.canvas)
     #ui.canvas.plot_refs = None
     update_plot()
 
-    ui.timer = QtCore.QTimer()
-    ui.timer.setInterval(100)
-    ui.timer.timeout.connect(update_plot)
-    ui.timer.start()
+    ui.canvas.setWindowTitle("Amplitude Wave")
+    ui.canvas.show()
+    ui.canvas.timer = QtCore.QTimer()
+    ui.canvas.timer.setInterval(100)
+    ui.canvas.timer.timeout.connect(update_plot)
+    ui.canvas.timer.start()
+    
+
 
 
 def update_plot():
-    print("Hewwwo")
+    #print("Hewwwo")
     ui.canvas.axes.cla() 
     ui.canvas.axes.autoscale(True)
     ui.canvas.axes.plot(np.arange(len(audBuffer))/rate,audBuffer)
     ui.canvas.draw()
-    """ if ui.canvas.plot_refs is None:
-        plot_refs = ui.canvas.axes.plot(np.arange(len(audBuffer))/rate,audBuffer,'b')
-        ui.canvas.plot_ref = plot_refs[0]
-    else:
-        ui.canvas.plot_refs.set_ydata(audBuffer)
 
-        # Trigger the canvas to update and redraw.
-    ui.canvas.draw() """
 
 def jsrspec():
     ui.canvas = MplCanvas(width=8, height=6, dpi=100)
-    MainWindow.setCentralWidget(ui.canvas)
+    #MainWindow.setCentralWidget(ui.canvas)
     #ui.canvas._plot_ref = None
     update_plot1()
-    ui.timer = QtCore.QTimer()
-    ui.timer.setInterval(100)
-    ui.timer.timeout.connect(update_plot1)
-    ui.timer.start()
+
+    ui.canvas.setWindowTitle("Spectogram")
+    ui.canvas.show()
+    ui.canvas.timer = QtCore.QTimer()
+    ui.canvas.timer.setInterval(100)
+    ui.canvas.timer.timeout.connect(update_plot1)
+    ui.canvas.timer.start()
 
 
 def update_plot1():
-    print("Hewwwo")
+    #print("Hewwwo")
     ui.canvas.axes.cla() 
     ui.canvas.axes.autoscale(True)
     ui.canvas.axes.specgram(audBuffer,Fs=rate)
@@ -90,6 +90,14 @@ def add_dev():
 def audstream():
     bigT = ui.devcombo.currentText()
     adbf.audthread(aud_list[bigT])
+    ui.conDev.setStyleSheet("background-color:#2ecc71;"
+                            "border-style:dashed;"
+                            "border-radius:10px;"
+                            "font-size:24px;"
+                            "font-family: ""MS UI Gothic"";"
+                            )
+    
+
 
 
 aud_list = dlist.retlist()
@@ -104,6 +112,7 @@ MainWindow.show()
 ui.ampwave.clicked.connect(jsrplot)
 ui.conDev.clicked.connect(audstream)
 ui.spect.clicked.connect(jsrspec)
+
 app.exec()
 
 adbf.kilBoi()
